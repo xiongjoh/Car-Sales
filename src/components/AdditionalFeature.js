@@ -5,14 +5,12 @@ import actions from '../actions/carActions'
 
 const AdditionalFeature = props => {
 
+  // Hooks for redux
   const car = useSelector(state => state.car)
-
   const dispatch = useDispatch()
 
   const addFeature = (e) => {
     e.preventDefault()
-    // console.log(car.features)
-    // console.log(car.features.some(feature => feature.id === props.feature.id))
     if (car.features.some(feature => feature.id === props.feature.id)) {
       console.log(`cannot add more of that feature`)
     }

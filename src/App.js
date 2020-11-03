@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -47,12 +47,3 @@ const App = () => {
 };
 
 export default App
-
-
-// export default connect((state)=> {
-//   return {
-//     car: state.car,
-//     additionalFeatures: state.additionalFeatures,
-//     additionalPrice: state.additionalPrice,
-//   }
-// }, {})(App);
