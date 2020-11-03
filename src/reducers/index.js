@@ -17,21 +17,24 @@ const initialState = {
   ],
 };
 
+const findFeatureById = (state, actionId) => {
+    return state.additionalFeatures.find( ({id}) => id === actionId)
+}
+
 const reducer = (state = initialState, action) => {
   console.log(state, action);
   switch (action.type) {
     case ADD_FEATURE:
         return {...state, 
             car:{...state.car, 
-                price:state.car.price + state.additionalFeatures.find( ({id}) => id === action.payload).price ,
+                price:state.car.price + findFeatureById(state, action.payload).price ,
                 features:[...state.car.features, 
-                    state.additionalFeatures.find(
-                        ({id}) => id === action.payload)
+                    findFeatureById(state, action.payload)
                     ]}}
     case REMOVE_FEATURE:
         return {...state, 
             car:{...state.car, 
-                price:state.car.price - state.additionalFeatures.find( ({id}) => id === action.payload).price ,
+                price:state.car.price - findFeatureById(state, action.payload).price ,
                 features:[ ...state.car.features.filter(
                         ({id}) => id !== action.payload)
                     ]}}
